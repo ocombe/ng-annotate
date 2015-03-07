@@ -78,7 +78,7 @@ SourceMapper.prototype.calculateMappings = function() {
             ++pos;
         }
     }
-}
+};
 
 SourceMapper.prototype.addMapping = function(input, output) {
     this.generator.addMapping({
@@ -86,15 +86,15 @@ SourceMapper.prototype.addMapping = function(input, output) {
         original: input,
         generated: output
     });
-}
+};
 
 SourceMapper.prototype.applySourceMap = function (consumer) {
     this.generator.applySourceMap(consumer);
-}
+};
 
 SourceMapper.prototype.generate = function () {
     return this.generator.toString();
-}
+};
 
 function compareLoc(a, b) {
     return (a.line - b.line) || (a.column - b.column);
@@ -117,4 +117,4 @@ module.exports = function generateSourcemap(result, src, nodePositions, fragment
     } else {
         result.map = mapper.generate();
     }
-}
+};

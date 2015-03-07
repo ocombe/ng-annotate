@@ -93,7 +93,7 @@ Scope.prototype.add = function(name, kind, node, referableFromPos) {
 
     const declaration = {
         kind: kind,
-        node: node,
+        node: node
     };
     if (referableFromPos) {
         assert(is.someof(kind, ["var", "const", "let"]));

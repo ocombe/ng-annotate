@@ -13,7 +13,7 @@ Ctrl2.$inject = ["serviceName"];
 function outer() {
     MyCtrl["$inject"] = ["asdf"];
     return {
-        controller: MyCtrl,
+        controller: MyCtrl
     };
 
     // @ngInject

@@ -8,7 +8,7 @@ const is = require("simple-is");
 
 module.exports = {
     inspectComments: inspectComments,
-    inspectNode: inspectNode,
+    inspectNode: inspectNode
 };
 
 function inspectNode(node, ctx) {

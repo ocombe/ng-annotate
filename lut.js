@@ -18,7 +18,7 @@ function Lut(ast, src) {
     const sparseEnds = new Array(src.length);
     const ends = [];
     let p = 0;
-    const t0 = Date.now();
+    //const t0 = Date.now();
     traverse(ast, {pre: function(node) {
         //        assert (node.range[0] >= p);
         if (node.type === "Program") {

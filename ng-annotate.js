@@ -17,15 +17,15 @@ const optimist = require("optimist")
     .options("a", {
         alias: "add",
         boolean: true,
-        describe: "add dependency injection annotations where non-existing",
+        describe: "add dependency injection annotations where non-existing"
     })
     .options("r", {
         alias: "remove",
         boolean: true,
-        describe: "remove all existing dependency injection annotations",
+        describe: "remove all existing dependency injection annotations"
     })
     .options("o", {
-        describe: "write output to <file>. output is written to stdout by default",
+        describe: "write output to <file>. output is written to stdout by default"
     })
     .options("sourcemap", {
         boolean: true,
@@ -36,10 +36,10 @@ const optimist = require("optimist")
     })
     .options("single_quotes", {
         boolean: true,
-        describe: "use single quotes (') instead of double quotes (\")",
+        describe: "use single quotes (') instead of double quotes (\")"
     })
     .options("regexp", {
-        describe: "detect short form myMod.controller(...) iff myMod matches regexp",
+        describe: "detect short form myMod.controller(...) iff myMod matches regexp"
     })
     .options("rename", {
         describe: "rename declarations and annotated references\n" +
@@ -47,11 +47,11 @@ const optimist = require("optimist")
         default: ""
     })
     .options("plugin", {
-        describe: "use plugin with path (experimental)",
+        describe: "use plugin with path (experimental)"
     })
     .options("stats", {
         boolean: true,
-        describe: "print statistics on stderr (experimental)",
+        describe: "print statistics on stderr (experimental)"
     });
 
 const argv = optimist.argv;
@@ -127,7 +127,7 @@ function runAnnotate(err, src) {
         if (filename !== "-") {
             config.map.inFile = filename;
         }
-    };
+    }
 
     if (config.plugin) {
         if (!Array.isArray(config.plugin)) {
@@ -155,7 +155,7 @@ function runAnnotate(err, src) {
         for (let i = 0; i < flattenRename.length; i = i + 2) {
             renameArray.push({
                 "from": flattenRename[i],
-                "to": flattenRename[i + 1],
+                "to": flattenRename[i + 1]
             });
         }
         config.rename = renameArray;
@@ -182,7 +182,7 @@ function runAnnotate(err, src) {
 
         const pct = function(n) {
             return Math.round(100 * n / all);
-        }
+        };
 
         process.stderr.write(fmt("[{0} ms] parser: {1}, nga init: {2}, nga run: {3}\n", all, all_parser, nga_init, nga_run));
         process.stderr.write(fmt("[%] parser: {0}, nga init: {1}, nga run: {2}\n", pct(all_parser), pct(nga_init), pct(nga_run)));

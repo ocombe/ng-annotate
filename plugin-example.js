@@ -26,5 +26,5 @@ module.exports = {
         // you know about /* @ngInject */, don't you? (you may not need a plugin)
 
         // please consider sending a pull request if your plugin is of general use
-    },
+    }
 };

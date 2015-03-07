@@ -225,7 +225,7 @@ angular.module('myMod', []).
     provider('myService', {
         $get: ["otherDep", function(otherDep) {
         }]
-    })
+    });
 
 //'should annotate declarations on modules being referenced'
 angular.module('myMod', []);

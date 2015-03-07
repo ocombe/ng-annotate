@@ -11,7 +11,7 @@ const is = require("simple-is");
 
 module.exports = {
     setupScopeAndReferences: setupScopeAndReferences,
-    isReference: isReference,
+    isReference: isReference
 };
 
 function setupScopeAndReferences(root) {
@@ -28,7 +28,7 @@ function createScopes(node, parent) {
         node.$scope = new Scope({
             kind: "block",
             node: node,
-            parent: parent.$scope,
+            parent: parent.$scope
         });
 
     } else if (node.type === "VariableDeclaration") {
@@ -45,7 +45,7 @@ function createScopes(node, parent) {
         node.$scope = new Scope({
             kind: "hoist",
             node: node,
-            parent: parent.$scope,
+            parent: parent.$scope
         });
 
         // function has a name
@@ -71,7 +71,7 @@ function createScopes(node, parent) {
         node.$scope = new Scope({
             kind: "block",
             node: node,
-            parent: parent.$scope,
+            parent: parent.$scope
         });
 
     } else if (node.type === "CatchClause") {
@@ -80,7 +80,7 @@ function createScopes(node, parent) {
         node.$scope = new Scope({
             kind: "catch-block",
             node: node,
-            parent: parent.$scope,
+            parent: parent.$scope
         });
         node.$scope.add(identifier.name, "caught", identifier, null);
 
@@ -101,7 +101,7 @@ function createScopes(node, parent) {
         node.$scope = new Scope({
             kind: "hoist",
             node: node,
-            parent: null,
+            parent: null
         });
     }
 }
@@ -121,13 +121,13 @@ function createTopScope(programScope) {
     const topScope = new Scope({
         kind: "hoist",
         node: {},
-        parent: null,
+        parent: null
     });
 
     const complementary = {
         undefined: false,
         Infinity: false,
-        console: false,
+        console: false
     };
 
     inject(complementary);

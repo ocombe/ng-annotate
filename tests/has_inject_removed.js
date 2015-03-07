@@ -11,7 +11,7 @@ function Ctrl2(a) {
 
 function outer() {
     return {
-        controller: MyCtrl,
+        controller: MyCtrl
     };
 
     // @ngInject

@@ -232,9 +232,9 @@ angular.module("MyMod").directive("pleasematchthis", function() {
             resolve: {
                 zero: function() { a },
                 more: ["$scope", "$timeout", function($scope, $timeout) { b }],
-                something: "else",
+                something: "else"
             },
-            dontAlterMe: function(arg) {},
+            dontAlterMe: function(arg) {}
         });
 
     // ui-router
@@ -242,7 +242,7 @@ angular.module("MyMod").directive("pleasematchthis", function() {
         resolve: {
             simpleObj: function() { a },
             promiseObj: ["$scope", "$timeout", function($scope, $timeout) { b }],
-            translations: "translations",
+            translations: "translations"
         },
         views: {
             viewa: {
@@ -259,7 +259,7 @@ angular.module("MyMod").directive("pleasematchthis", function() {
             viewb: {
                 dontAlterMe: function(arg) {},
                 templateProvider: ["$scope", function($scope) {}],
-                controller: ["$scope", function($scope) {}],
+                controller: ["$scope", function($scope) {}]
             },
             dontAlterMe: null,
         },
@@ -268,12 +268,12 @@ angular.module("MyMod").directive("pleasematchthis", function() {
         templateProvider: ["$scope", function($scope) { h }],
         onEnter: ["$scope", function($scope) { d }],
         onExit: ["$scope", function($scope) { e }],
-        dontAlterMe: function(arg) { f },
+        dontAlterMe: function(arg) { f }
     }).state("myState2", {
             controller: ["$scope", function($scope) {}],
         }).state({
             name: "myState3",
-            controller: ["$scope", "simpleObj", "promiseObj", "translations", function($scope, simpleObj, promiseObj, translations) { c }],
+            controller: ["$scope", "simpleObj", "promiseObj", "translations", function($scope, simpleObj, promiseObj, translations) { c }]
         });
     $urlRouterProvider.when("/", ["$match", function($match) { a; }]);
     $urlRouterProvider.otherwise("", function(a) { a; });
@@ -287,26 +287,26 @@ angular.module("MyMod").directive("pleasematchthis", function() {
                 name: "a",
                 controller: ["a", function(a) {}],
                 resolve: {
-                    f: ["$a", function($a) {}],
+                    f: ["$a", function($a) {}]
                 },
                 children: [
                     {
                         name: "ab",
                         controller: ["ab", function(ab) {}],
                         resolve: {
-                            f: ["$ab", function($ab) {}],
+                            f: ["$ab", function($ab) {}]
                         },
                         children: [
                             {
                                 name: "abc",
                                 controller: ["abc", function(abc) {}],
                                 resolve: {
-                                    f: ["$abc", function($abc) {}],
-                                },
-                            },
-                        ],
-                    },
-                ],
+                                    f: ["$abc", function($abc) {}]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 name: "b",
@@ -321,20 +321,20 @@ angular.module("MyMod").directive("pleasematchthis", function() {
                             myParam: ["$stateParams", function($stateParams) {
                                 return $stateParams.paramFromDI;
                             }]
-                        },
+                        }
                     },
                     viewb: {
                         dontAlterMe: function(arg) {},
                         templateProvider: ["$scope", function($scope) {}],
-                        controller: ["$scope", function($scope) {}],
+                        controller: ["$scope", function($scope) {}]
                     },
-                    dontAlterMe: null,
-                },
-            },
-        ],
+                    dontAlterMe: null
+                }
+            }
+        ]
     });
     stateHelperProvider.setNestedState({
-        controller: ["$scope", "simpleObj", "promiseObj", "translations", function($scope, simpleObj, promiseObj, translations) { c }],
+        controller: ["$scope", "simpleObj", "promiseObj", "translations", function($scope, simpleObj, promiseObj, translations) { c }]
     }, true);
 
     // angular ui / ui-bootstrap $modal
@@ -344,9 +344,9 @@ angular.module("MyMod").directive("pleasematchthis", function() {
         resolve: {
             items: ["MyService", function(MyService) {}],
             data: ["a", "b", function(a, b) {}],
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
 
     // angular material design $mdBottomSheet, $mdDialog, $mdToast
@@ -356,9 +356,9 @@ angular.module("MyMod").directive("pleasematchthis", function() {
         resolve: {
             items: ["MyService", function(MyService) {}],
             data: ["a", "b", function(a, b) {}],
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
     $mdBottomSheet.show({
         templateUrl: "str",
@@ -366,9 +366,9 @@ angular.module("MyMod").directive("pleasematchthis", function() {
         resolve: {
             items: ["MyService", function(MyService) {}],
             data: ["a", "b", function(a, b) {}],
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
     $mdToast.show({
         templateUrl: "str",
@@ -376,9 +376,9 @@ angular.module("MyMod").directive("pleasematchthis", function() {
         resolve: {
             items: ["MyService", function(MyService) {}],
             data: ["a", "b", function(a, b) {}],
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
 });
 
@@ -404,9 +404,9 @@ foobar.irrespective("dontmatchthis", function() {
         resolve: {
             zero: function() { a },
             more: function($scope, $timeout) { b },
-            something: "else",
+            something: "else"
         },
-        dontAlterMe: function(arg) {},
+        dontAlterMe: function(arg) {}
     });
 
     // ui-router
@@ -414,7 +414,7 @@ foobar.irrespective("dontmatchthis", function() {
         resolve: {
             simpleObj: function() { a },
             promiseObj: function($scope, $timeout) { b },
-            translations: "translations",
+            translations: "translations"
         },
         views: {
             viewa: {
@@ -426,26 +426,26 @@ foobar.irrespective("dontmatchthis", function() {
                     myParam: function($stateParams) {
                         return $stateParams.paramFromDI;
                     }
-                },
+                }
             },
             viewb: {
                 dontAlterMe: function(arg) {},
                 templateProvider: function($scope) {},
-                controller: function($scope) {},
+                controller: function($scope) {}
             },
-            dontAlterMe: null,
+            dontAlterMe: null
         },
         controller: function($scope, simpleObj, promiseObj, translations) { c },
         controllerProvider: function($scope) { g },
         templateProvider: function($scope) { h },
         onEnter: function($scope) { d },
         onExit: function($scope) { e },
-        dontAlterMe: function(arg) { f },
+        dontAlterMe: function(arg) { f }
     }).state("myState2", {
-        controller: function($scope) {},
+        controller: function($scope) {}
     }).state({
         name: "myState3",
-        controller: function($scope, simpleObj, promiseObj, translations) { c },
+        controller: function($scope, simpleObj, promiseObj, translations) { c }
     });
     $urlRouterProvider.when("/", function($match) { a; });
     $urlRouterProvider.otherwise("", function(a) { a; });
@@ -459,26 +459,26 @@ foobar.irrespective("dontmatchthis", function() {
                 name: "a",
                 controller: function(a) {},
                 resolve: {
-                    f: function($a) {},
+                    f: function($a) {}
                 },
                 children: [
                     {
                         name: "ab",
                         controller: function(ab) {},
                         resolve: {
-                            f: function($ab) {},
+                            f: function($ab) {}
                         },
                         children: [
                             {
                                 name: "abc",
                                 controller: function(abc) {},
                                 resolve: {
-                                    f: function($abc) {},
-                                },
-                            },
-                        ],
-                    },
-                ],
+                                    f: function($abc) {}
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 name: "b",
@@ -493,20 +493,20 @@ foobar.irrespective("dontmatchthis", function() {
                             myParam: function($stateParams) {
                                 return $stateParams.paramFromDI;
                             }
-                        },
+                        }
                     },
                     viewb: {
                         dontAlterMe: function(arg) {},
                         templateProvider: function($scope) {},
-                        controller: function($scope) {},
+                        controller: function($scope) {}
                     },
-                    dontAlterMe: null,
-                },
-            },
-        ],
+                    dontAlterMe: null
+                }
+            }
+        ]
     });
     stateHelperProvider.setNestedState({
-        controller: function($scope, simpleObj, promiseObj, translations) { c },
+        controller: function($scope, simpleObj, promiseObj, translations) { c }
     }, true);
 
     // angular ui / ui-bootstrap $modal
@@ -516,9 +516,9 @@ foobar.irrespective("dontmatchthis", function() {
         resolve: {
             items: function(MyService) {},
             data: function(a, b) {},
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
 
     // angular material design $mdBottomSheet, $mdDialog, $mdToast
@@ -528,9 +528,9 @@ foobar.irrespective("dontmatchthis", function() {
         resolve: {
             items: function(MyService) {},
             data: function(a, b) {},
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
     $mdBottomSheet.show({
         templateUrl: "str",
@@ -538,9 +538,9 @@ foobar.irrespective("dontmatchthis", function() {
         resolve: {
             items: function(MyService) {},
             data: function(a, b) {},
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
     $mdToast.show({
         templateUrl: "str",
@@ -548,9 +548,9 @@ foobar.irrespective("dontmatchthis", function() {
         resolve: {
             items: function(MyService) {},
             data: function(a, b) {},
-            its: 42,
+            its: 42
         },
-        donttouch: function(me) {},
+        donttouch: function(me) {}
     });
 });
 
@@ -562,7 +562,7 @@ var obj = {};
 obj.bar = /*@ngInject*/ ["$scope", function($scope) {}];
 
 obj = {
-    controller: /*@ngInject*/ ["$scope", function($scope) {}],
+    controller: /*@ngInject*/ ["$scope", function($scope) {}]
 };
 
 obj = /*@ngInject*/ {
@@ -571,16 +571,16 @@ obj = /*@ngInject*/ {
     val: 42,
     inner: {
         circle: ["d", function(d) {}],
-        alalalala: "long",
+        alalalala: "long"
     },
     nest: { many: {levels: ["x", function(x) {}]}},
-    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]},
+    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]}
 };
 
 obj = {
     /*@ngInject*/
     foo: ["a", function(a) {}],
-    bar: function(b, c) {},
+    bar: function(b, c) {}
 };
 
 /*@ngInject*/
@@ -590,10 +590,10 @@ obj = {
     val: 42,
     inner: {
         circle: ["d", function(d) {}],
-        alalalala: "long",
+        alalalala: "long"
     },
     nest: { many: {levels: ["x", function(x) {}]}},
-    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]},
+    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]}
 };
 
 /*@ngInject*/
@@ -603,10 +603,10 @@ var obj = {
     val: 42,
     inner: {
         circle: ["d", function(d) {}],
-        alalalala: "long",
+        alalalala: "long"
     },
     nest: { many: {levels: ["x", function(x) {}]}},
-    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]},
+    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]}
 };
 
 // @ngInject
@@ -667,10 +667,10 @@ foo5.$inject = ["$scope"];
         foo8.$inject = ["$scope"];
 // @ngInject
 var foo9 = function($scope) {
-}
+};
 foo9.$inject = ["$scope"];
             // @ngInject
-            var foo10 = function($scope) {}
+            var foo10 = function($scope) {};
             foo10.$inject = ["$scope"];
 
     /* @ngInject */ var foo11 = function($scope) {
@@ -679,9 +679,9 @@ foo9.$inject = ["$scope"];
         /* @ngInject */var foo12 = function($scope) {};
         foo12.$inject = ["$scope"];
 /* @ngInject */var foo13 = function($scope) {
-}
+};
 foo13.$inject = ["$scope"];
-            /* @ngInject */var foo14 = function($scope) {}
+            /* @ngInject */var foo14 = function($scope) {};
             foo14.$inject = ["$scope"];
 
 
@@ -695,7 +695,7 @@ function outer() {
     foo;
     MyCtrl.$inject = ["a"];
     return {
-        controller: MyCtrl,
+        controller: MyCtrl
     };
 
     // @ngInject
@@ -713,10 +713,10 @@ obj = ngInject({
     val: 42,
     inner: {
         circle: ["d", function(d) {}],
-        alalalala: "long",
+        alalalala: "long"
     },
     nest: { many: {levels: ["x", function(x) {}]}},
-    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]},
+    but: { onlythrough: ["object literals", {donttouch: function(me) {}}]}
 });
 
 
@@ -825,8 +825,8 @@ angular.module("MyMod").directive("foo", ["$a", "$b", function($a, $b) {
             collection: (function(_this) {
                 return ["$c", function($c) {
                 }];
-            })(this),
-        },
+            })(this)
+        }
     });
 }]);
 
@@ -897,7 +897,7 @@ function MyDirective($stateProvider) {
     $stateProvider.state('astate', {
         resolve: {
             yoyo: ["ma", function(ma) {
-            }],
+            }]
         }
     });
 }
@@ -908,7 +908,7 @@ function MyDirective2($stateProvider) {
     $stateProvider.state('astate', {
         resolve: {
             yoyo: ["ma", function(ma) {
-            }],
+            }]
         }
     });
 }

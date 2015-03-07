@@ -61,7 +61,7 @@ PosToLineColumn.prototype.toColumn = function(pos) {
 PosToLineColumn.prototype.toLineColumn = function(pos) {
     return {
         line: this.toLine(pos),
-        column: this.toColumn(pos),
+        column: this.toColumn(pos)
     };
 };
 

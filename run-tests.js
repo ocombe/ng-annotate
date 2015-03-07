@@ -43,7 +43,7 @@ const renameOptions = [
     {"from": "$f", "to": "$fRenamed"},
     {"from": "$g", "to": "$gRenamed"},
     {"from": "$h", "to": "$hRenamed"},
-    {"from": "$i", "to": "$iRenamed"},
+    {"from": "$i", "to": "$iRenamed"}
 ];
 
 function testSourcemap(original, got, sourcemap) {
@@ -104,7 +104,7 @@ function run(ngAnnotate) {
     console.log("testing adding annotations and renaming");
     const annotatedRenamed = ngAnnotate(rename, {
         add: true,
-        rename: renameOptions,
+        rename: renameOptions
     }).src;
     test(slurp("tests/rename.annotated.js"), annotatedRenamed, "rename.annotated.js");
 
@@ -149,12 +149,12 @@ function run(ngAnnotate) {
     test(ngminOriginal, ngAnnotate(ngminAnnotated, {remove: true, regexp: "^myMod"}).src, "ngmin_original.js");
 
     if (fs.existsSync("package.json")) {
-        console.log("testing package.json")
+        console.log("testing package.json");
         try {
             const json = JSON.parse(slurp("package.json"));
             const substr = JSON.stringify({
                 dependencies: json.dependencies,
-                devDependencies: json.devDependencies,
+                devDependencies: json.devDependencies
             }, null, 4);
             if (/\^/g.test(substr)) {
                 console.error("package.json error: shouldn't use the ^ operator");

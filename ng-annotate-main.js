@@ -119,7 +119,7 @@ function matchNgRoute(node) {
     if (args.length !== 2) {
         return false;
     }
-    const configArg = last(args)
+    const configArg = last(args);
     if (configArg.type !== "ObjectExpression") {
         return false;
     }
@@ -220,7 +220,7 @@ function matchNgUi(node) {
             matchProp("controllerProvider", props),
             matchProp("templateProvider", props),
             matchProp("onEnter", props),
-            matchProp("onExit", props),
+            matchProp("onExit", props)
         ];
         res.push.apply(res, simple);
 
@@ -380,7 +380,7 @@ function matchResolve(props) {
         });
     }
     return [];
-};
+}
 
 function renamedString(ctx, originalString) {
     if (ctx.rename) {
@@ -395,7 +395,7 @@ function stringify(ctx, arr, quot) {
     }).join(", ") + "]";
 }
 
-function parseExpressionOfType(str, type) {
+/*function parseExpressionOfType(str, type) {
     const node = parser(str).body[0].expression;
     assert(node.type === type);
     return node;
@@ -431,7 +431,7 @@ function replaceNodeWith(node, newNode) {
     });
 
     assert(done);
-}
+}*/
 
 function insertArray(ctx, functionExpression, fragments, quot) {
     const args = stringify(ctx, functionExpression.params, quot);
@@ -656,7 +656,7 @@ function followReference(node) {
         // {type: "VariableDeclarator", id: {type: "Identifier", name: "foo"}, init: ..}
         return parent;
     } else if (kind === "fun") {
-        assert(ptype === "FunctionDeclaration" || ptype === "FunctionExpression")
+        assert(ptype === "FunctionDeclaration" || ptype === "FunctionExpression");
         // FunctionDeclaration is the common case, i.e.
         // function foo(a, b) {}
 
@@ -976,12 +976,12 @@ module.exports = function ngAnnotate(src, options) {
             ecmaVersion: 6,
             locations: true,
             ranges: true,
-            onComment: comments,
+            onComment: comments
         });
         stats.parser_parse_t1 = Date.now();
     } catch(e) {
         return {
-            errors: ["error: couldn't process source due to parse error", e.message],
+            errors: ["error: couldn't process source due to parse error", e.message]
         };
     }
 
@@ -1039,7 +1039,7 @@ module.exports = function ngAnnotate(src, options) {
         addModuleContextDependentSuspect: addModuleContextDependentSuspect,
         addModuleContextIndependentSuspect: addModuleContextIndependentSuspect,
         stringify: stringify,
-        nodePositions: nodePositions,
+        nodePositions: nodePositions
     };
 
     const plugins = options.plugin || [];
@@ -1081,14 +1081,14 @@ module.exports = function ngAnnotate(src, options) {
         judgeSuspects(ctx);
     } catch(e) {
         return {
-            errors: ["error: " + e],
+            errors: ["error: " + e]
         };
     }
 
     const out = alter(src, fragments);
     const result = {
         src: out,
-        _stats: stats,
+        _stats: stats
     };
 
     if (options.sourcemap) {
@@ -1100,4 +1100,4 @@ module.exports = function ngAnnotate(src, options) {
     }
 
     return result;
-}
+};
